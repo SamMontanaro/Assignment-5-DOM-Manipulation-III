@@ -5,22 +5,34 @@ window.onload = () => {
     let currentColSize = 3;
     color = document.getElementById("color").value;
 
+    Array.from(document.querySelectorAll("td")).forEach(cell => {
+        cell.addEventListener("click", () => {
+            cell.className = color;
+        })
+    });
+
     document.getElementById("rowAdd").addEventListener("click", () => {
         const newRow = document.createElement("tr");
         table.append(newRow);
         for (let i = 0; i < currentColSize; i++) {
             let cell = document.createElement("td");
             cell.classList.add("white");
+            cell.addEventListener("click", () => {
+                cell.className = color;
+            })
             newRow.append(cell);
         }
     })
     document.getElementById("colAdd").addEventListener("click", () => {
         const rows = Array.from(document.querySelectorAll("tr"));
-        const cell = document.createElement("td");
-        cell.classList.add("white");
         if (rows) {
             rows.forEach(row => {
-                row.append(cell.cloneNode());
+                let cell = document.createElement("td");
+                cell.classList.add("white");
+                cell.addEventListener("click", () => {
+                    cell.className = color;
+                })
+                row.append(cell);
             });
             currentColSize++;
         }
