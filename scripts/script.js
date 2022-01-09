@@ -8,11 +8,9 @@ window.onload = () => {
 
     document.addEventListener("mousedown", () => {
         isDown = true;
-        console.log("currently down");
     })
     document.addEventListener("mouseup", () => {
         isDown = false;
-        console.log("currently up");
     })
 
     Array.from(document.querySelectorAll("td")).forEach(cell => {
@@ -20,7 +18,6 @@ window.onload = () => {
             cell.className = color;
         })
         cell.addEventListener("mouseover", () => {
-            console.log("currently hovering");
             if (isDown) {
                 cell.className = color;
             }
