@@ -35,8 +35,28 @@ td {
     background-color: white;
 }
 
+.grey {
+    background-color: grey;
+}
+
+.black {
+    background-color: black;
+}
+
+.brown {
+    background-color:brown;
+}
+
 .red {
     background-color: red;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.orange {
+    background-color: orange;
 }
 
 .green {
@@ -47,6 +67,14 @@ td {
     background-color: blue;
 }
 
-.yellow {
-    background-color: yellow;
+.purple {
+    background-color: purple;
+}
+
+.pink {
+    background-color: pink;
+}
+
+.lime {
+    background-color: lime;
 }

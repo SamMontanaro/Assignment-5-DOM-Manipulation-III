@@ -1,13 +1,29 @@
 var color;
+var isDown;
 
 window.onload = () => {
     const table = document.querySelector("tbody");
     let currentColSize = 3;
     color = document.getElementById("color").value;
 
+    document.addEventListener("mousedown", () => {
+        isDown = true;
+        console.log("currently down");
+    })
+    document.addEventListener("mouseup", () => {
+        isDown = false;
+        console.log("currently up");
+    })
+
     Array.from(document.querySelectorAll("td")).forEach(cell => {
         cell.addEventListener("click", () => {
             cell.className = color;
+        })
+        cell.addEventListener("mouseover", () => {
+            console.log("currently hovering");
+            if (isDown) {
+                cell.className = color;
+            }
         })
     });
 
@@ -20,6 +36,11 @@ window.onload = () => {
             cell.addEventListener("click", () => {
                 cell.className = color;
             })
+            cell.addEventListener("mouseover", () => {
+                if (isDown) {
+                    cell.className = color;
+                }
+            })
             newRow.append(cell);
         }
     })
@@ -31,6 +52,11 @@ window.onload = () => {
                 cell.classList.add("white");
                 cell.addEventListener("click", () => {
                     cell.className = color;
+                })
+                cell.addEventListener("mouseover", () => {
+                    if (isDown) {
+                        cell.className = color;
+                    }
                 })
                 row.append(cell);
             });
@@ -69,5 +95,12 @@ let fillAll = () => {
     let cells = Array.from(document.querySelectorAll("td"));
     cells.forEach(cell => {
         cell.className = color;
+    })
+}
+
+let clearAll = () => {
+    let cells = Array.from(document.querySelectorAll("td"));
+    cells.forEach(cell => {
+        cell.className = "white";
     })
 }
